@@ -1,4 +1,4 @@
-package com.makenv.InterceptingFilter;
+package InterceptingFilter;
 
 public class FirstFilter implements Filter {
     public void execute(String request) {

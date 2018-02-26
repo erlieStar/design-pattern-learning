@@ -1,4 +1,4 @@
-package com.makenv.ChainOfResponsibility;
+package ChainOfResponsibility;
 
 public class ChainPatternDemo {
 

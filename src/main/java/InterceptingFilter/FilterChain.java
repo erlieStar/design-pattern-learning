@@ -1,4 +1,4 @@
-package com.makenv.InterceptingFilter;
+package InterceptingFilter;
 
 import java.util.ArrayList;
 import java.util.List;

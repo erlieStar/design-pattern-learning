@@ -1,4 +1,4 @@
-package com.makenv.InterceptingFilter;
+package InterceptingFilter;
 
 public class FilterManager {
 
