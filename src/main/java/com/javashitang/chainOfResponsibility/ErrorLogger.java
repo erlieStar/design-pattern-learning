@@ -1,4 +1,4 @@
-package com.javashitang.ChainOfResponsibility;
+package com.javashitang.chainOfResponsibility;
 
 public class ErrorLogger extends AbstractLogger {
 
