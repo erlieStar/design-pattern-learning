@@ -1,4 +1,4 @@
-package com.javashitang.observer2;
+package com.javashitang.observer.method2;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

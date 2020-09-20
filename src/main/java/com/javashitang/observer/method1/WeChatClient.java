@@ -1,4 +1,4 @@
-package com.javashitang.observer;
+package com.javashitang.observer.method1;
 
 public class WeChatClient implements MyObserver {
 

@@ -1,4 +1,4 @@
-package com.javashitang.observer;
+package com.javashitang.observer.method1;
 
 import java.util.ArrayList;
 import java.util.List;
