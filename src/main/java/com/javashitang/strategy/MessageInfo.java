@@ -8,7 +8,7 @@ import lombok.Data;
 public class MessageInfo {
 
     // 消息类型
-    private Integer type;
+    private MsgTypeEnum type;
     // 消息内容
     private String content;
 

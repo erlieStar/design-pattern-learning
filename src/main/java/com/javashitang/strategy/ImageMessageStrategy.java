@@ -3,8 +3,8 @@ package com.javashitang.strategy;
 import org.springframework.stereotype.Service;
 
 @Service
-@MsgTypeHandler(value = MSG_TYPE.IMAGE)
-public class ImageMessageService implements MessageService {
+@MsgTypeHandler(value = MsgTypeEnum.IMAGE)
+public class ImageMessageStrategy implements MessageStrategy {
 
     @Override
     public void handleMessage(MessageInfo messageInfo) {

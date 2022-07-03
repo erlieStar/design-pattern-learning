@@ -1,29 +1,37 @@
 package com.javashitang;
 
-import com.javashitang.strategy.MSG_TYPE;
+import com.javashitang.strategy.MsgTypeEnum;
 import com.javashitang.strategy.MessageInfo;
-import com.javashitang.strategy.MessageService;
-import com.javashitang.strategy.MessageServiceContext;
+import com.javashitang.strategy.MessageStrategy;
+import com.javashitang.strategy.MsgTypeHandler;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DemoApplicationTests {
 
-    @Autowired
-    MessageServiceContext messageServiceContext;
+    private Map<MsgTypeEnum, MessageStrategy> messageStrategyMap;
+
+    @Resource
+    private void setRoleMenuMap(List<MessageStrategy> messageStrategies) {
+        messageStrategyMap = messageStrategies.stream().collect(
+                Collectors.toMap(item -> AnnotationUtils.findAnnotation(item.getClass(), MsgTypeHandler.class).value(), v -> v));
+    }
 
     @Test
     public void contextLoads() {
         // 构建一个文本消息
-        MessageInfo messageInfo = new MessageInfo(MSG_TYPE.TEXT.code, "消息内容");
-        MessageService messageService = messageServiceContext.getMessageService(messageInfo.getType());
-        // 处理文本消息 消息内容
-        // 可以看到文本消息被文本处理类所处理
-        messageService.handleMessage(messageInfo);
+        MessageInfo messageInfo = new MessageInfo(MsgTypeEnum.TEXT, "消息内容");
+        MessageStrategy messageStrategy = messageStrategyMap.get(messageInfo.getType());
+        messageStrategy.handleMessage(messageInfo);
     }
 }

@@ -1,6 +1,6 @@
 package com.javashitang.strategy;
 
-public interface MessageService {
+public interface MessageStrategy {
 
     void handleMessage(MessageInfo messageInfo);
 }
