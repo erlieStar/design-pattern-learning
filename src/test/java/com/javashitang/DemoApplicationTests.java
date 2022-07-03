@@ -29,9 +29,17 @@ public class DemoApplicationTests {
 
     @Test
     public void contextLoads() {
-        // 构建一个文本消息
-        MessageInfo messageInfo = new MessageInfo(MsgTypeEnum.TEXT, "消息内容");
+        MessageInfo messageInfo = new MessageInfo(MsgTypeEnum.TEXT, "这是一个文本消息");
         MessageStrategy messageStrategy = messageStrategyMap.get(messageInfo.getType());
+        // 处理文本消息 这是一个文本消息
+        messageStrategy.handleMessage(messageInfo);
+    }
+
+    @Test
+    public void test2() {
+        MessageInfo messageInfo = new MessageInfo(MsgTypeEnum.IMAGE, "这是一个图片消息");
+        MessageStrategy messageStrategy = messageStrategyMap.get(messageInfo.getType());
+        // 处理图片消息 这是一个图片消息
         messageStrategy.handleMessage(messageInfo);
     }
 }
